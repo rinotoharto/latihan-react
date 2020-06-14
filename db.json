@@ -1,0 +1,34 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "name": "Rino",
+      "division": "Backend"
+    },
+    {
+      "id": 2,
+      "name": "Adi",
+      "division": "Frontend"
+    },
+    {
+      "id": 3,
+      "name": "Rizky",
+      "division": "Mobile"
+    },
+    {
+      "id": 4,
+      "name": "Putri",
+      "division": "Backend"
+    },
+    {
+      "id": 5,
+      "name": "Siska",
+      "division": "Mobile"
+    },
+    {
+      "name": "Rini",
+      "division": "Frontend",
+      "id": 7
+    }
+  ]
+}
