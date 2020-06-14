@@ -40,8 +40,8 @@ const HomePage = () => {
       <Form>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>Filter employee by division</Form.Label>
-          <Form.Control value={division} onChange={newDivision} as="select">
-            <option value="All" selected >All</option>
+          <Form.Control onChange={newDivision} as="select">
+            <option value="All" >All</option>
             <option value="Backend">Backend</option>
             <option value="Frontend">Frontend</option>
             <option value="Mobile">Mobile</option>
@@ -69,6 +69,9 @@ const HomePage = () => {
               <Button variant="danger" size="sm" onClick={() => delEmployee(employee.id)}>Delete</Button>
               <Button variant="success" size="sm">
                 <Link className="link" to={`/Detail/${employee.id}`}> Detail </Link>
+              </Button>
+              <Button variant="warning" size="sm">
+                <Link className="link" to={`/Edit/${employee.id}`}> Edit </Link>
               </Button>
               </td>
             </tr>

@@ -17,6 +17,13 @@ export default function employeeReducer(state = initialState, action) {
       return { ...state, employees: state.employees = filtered };
     case 'GET_ID':
       return { ...state, employee: state.employee = action.payload};
+    case 'EDIT_EMPLOYEE':
+      console.log(action.payload, 'ini di reducer')
+      let filter = state.employees.filter((employee) => {
+        return employee.id !== action.payload.id
+      })
+      filter.concat(action.payload)
+      return {...state, employees: state.employees = filter};
   
     default:
       return state;

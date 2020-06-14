@@ -1,12 +1,10 @@
 export function fetchEmployees() {
   return(dispatch) => {
-    console.log('fetch')
     fetch('http://localhost:8000/employee', {
       method: 'GET'
     })
     .then( response => response.json() )
     .then( employees => {
-      console.log(employees)
       dispatch({
         type: 'GET_EMPLOYEES',
         payload: employees
@@ -60,7 +58,7 @@ export function deleteEmployee(employeeId) {
 }
 
 export function getEmployeeId(employeeId) {
-  return(dispatch) => [
+  return(dispatch) => {
     fetch(`http://localhost:8000/employee/${employeeId}`, {
       method: 'GET'
     })
@@ -74,5 +72,29 @@ export function getEmployeeId(employeeId) {
     .catch(err => {
       console.log(err)
     })
-  ]
+  }
+}
+
+export function editEmployee(newEmployee) {
+  const { id } = newEmployee
+
+  return(dispatch) => {
+    fetch(`http://localhost:8000/employee/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newEmployee),
+    })
+    .then(response => response.json())
+    .then(editedEmployee => {
+      dispatch({
+        type: 'EDIT_EMPLOYEE',
+        payload: editedEmployee
+      })
+    })
+    .catch(err => {
+      console.log(err.message)
+    })
+  }
 }

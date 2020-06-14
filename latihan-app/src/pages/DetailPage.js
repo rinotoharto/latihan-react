@@ -8,10 +8,10 @@ const DetailPage = () => {
   const {id} = useParams()
   const employee = useSelector( state => state.employeeReducer.employee )
   const dispatch = useDispatch()
-  console.log(id, employee)
 
   useEffect(() => {
     dispatch(getEmployeeId(id))
+    console.log(employee,'<<<<<<<')
   },[dispatch, id])
 
   return (
